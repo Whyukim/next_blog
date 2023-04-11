@@ -14,9 +14,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header className="flex items-center max-w-[1220px] h-[48px] mx-auto px-[20px]">
+        <header className="flex items-center max-w-[1220px] h-10 mx-auto px-5">
           <nav className="flex justify-between w-full">
-            <span>logo</span>
+            <Link href={"/"} className="font-bold">
+              Hyuk's Blog
+            </Link>
             <div className="flex gap-5">
               <Link href={"/"}>home</Link>
               <Link href={"/about"}>about</Link>
@@ -25,7 +27,10 @@ export default function RootLayout({
             </div>
           </nav>
         </header>
-        {children}
+        <main className="p-5 min-h-main-min">{children}</main>
+        <footer className="flex justify-center items-center h-10 bg-color-blue">
+          footer입니다.
+        </footer>
       </body>
     </html>
   );
