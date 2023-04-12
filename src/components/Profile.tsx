@@ -7,7 +7,7 @@ interface IProfile {}
 
 function Profile({}: IProfile) {
   return (
-    <section className="flex items-center flex-col max-w-[1220px]">
+    <section className="flex items-center flex-col">
       <div className="flex justify-center">
         <Image
           className="rounded-[50%]"

@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "image": "clothes.jpg",
+    "createAt": "2023-01-31",
+    "title": "타이틀입니다.",
+    "description": "설명글입니다.",
+    "category": ["frontEnd"]
+  },
+  {
+    "id": 2,
+    "image": "shoes.jpg",
+    "createAt": "2023-02-05",
+    "title": "신발 판매합니다.",
+    "description": "저렴한 가격에 신발을 판매합니다.",
+    "category": ["backEnd"]
+  },
+  {
+    "id": 3,
+    "image": "watch.jpg",
+    "createAt": "2023-02-10",
+    "title": "시계 구매합니다.",
+    "description": "고급스런 디자인의 시계를 구매합니다.",
+    "category": ["frontEnd", "backEnd"]
+  },
+  {
+    "id": 4,
+    "image": "electronics.jpg",
+    "createAt": "2023-02-15",
+    "title": "전자제품 할인 이벤트 중",
+    "description": "다양한 전자제품을 저렴한 가격에 판매합니다.",
+    "category": ["frontEnd"]
+  },
+  {
+    "id": 5,
+    "image": "perfume.jpg",
+    "createAt": "2023-02-20",
+    "title": "향수 판매합니다.",
+    "description": "새로운 향수 제품을 판매합니다.",
+    "category": ["backEnd"]
+  },
+  {
+    "id": 6,
+    "image": "book.jpg",
+    "createAt": "2023-02-25",
+    "title": "책 구매합니다.",
+    "description": "다양한 장르의 책을 구매합니다.",
+    "category": ["frontEnd", "backEnd"]
+  },
+  {
+    "id": 7,
+    "image": "furniture.jpg",
+    "createAt": "2023-03-01",
+    "title": "가구 판매합니다.",
+    "description": "다양한 디자인의 가구를 판매합니다.",
+    "category": ["backEnd"]
+  },
+  {
+    "id": 8,
+    "image": "cosmetics.jpg",
+    "createAt": "2023-03-06",
+    "title": "화장품 할인 이벤트 중",
+    "description": "다양한 화장품을 저렴한 가격에 판매합니다.",
+    "category": ["frontEnd"]
+  },
+  {
+    "id": 9,
+    "image": "food.jpg",
+    "createAt": "2023-03-11",
+    "title": "음식 배달 서비스",
+    "description": "다양한 음식을 배달해드립니다.",
+    "category": ["frontEnd", "backEnd"]
+  }
+]

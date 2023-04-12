@@ -4,7 +4,7 @@ interface IpostsDetail {
 }
 
 function postsDetail({ params, searchParams }: IpostsDetail) {
-  console.log(123, params, searchParams);
+  // console.log(123, params, searchParams);
   return <p>Post1231:</p>;
 }
 

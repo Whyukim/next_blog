@@ -20,6 +20,9 @@ module.exports = {
       minHeight: {
         "main-min": "calc(100vh - 5rem)",
       },
+      gridAutoRows: {
+        posts: "55% 45%",
+      },
     },
   },
   plugins: [],

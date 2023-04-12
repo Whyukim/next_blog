@@ -27,7 +27,9 @@ export default function RootLayout({
             </div>
           </nav>
         </header>
-        <main className="p-5 min-h-main-min">{children}</main>
+        <main className="p-5 min-h-main-min max-w-[1220px] mx-auto">
+          {children}
+        </main>
         <footer className="flex justify-center items-center h-10 bg-color-blue">
           footer입니다.
         </footer>
