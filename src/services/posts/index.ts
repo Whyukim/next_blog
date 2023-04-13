@@ -20,6 +20,13 @@ export async function getCategory(): Promise<string[]> {
   return ["All Posts", ...uniqueCategories];
 }
 
+export async function getPost(id: string): Promise<string> {
+  const filePath = path.join(process.cwd(), "data/posts", `${id}.md`);
+  const data = await fs.readFile(filePath, "utf-8");
+
+  return data;
+}
+
 // export async function getProduct(id: string) {
 //   const products = await getProducts();
 //   return products.find((product) => product.id === id);

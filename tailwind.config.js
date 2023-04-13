@@ -20,10 +20,13 @@ module.exports = {
       minHeight: {
         "main-min": "calc(100vh - 5rem)",
       },
+      gridTemplateColumns: {
+        posts: "repeat(3, minmax(0, 300px))",
+      },
       gridAutoRows: {
         posts: "55% 45%",
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

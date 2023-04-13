@@ -27,7 +27,7 @@ export default function RootLayout({
             </div>
           </nav>
         </header>
-        <main className="p-5 min-h-main-min max-w-[1220px] mx-auto">
+        <main className="px-5 pt-5 pb-16 min-h-main-min max-w-[1220px] mx-auto">
           {children}
         </main>
         <footer className="flex justify-center items-center h-10 bg-color-blue">

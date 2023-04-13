@@ -13,9 +13,10 @@ function Category({ categorys, select, handleCategory }: ICategory) {
       {categorys.map((category, index) => (
         <div
           key={category + index}
-          className={`cursor-pointer transition hover:text-sky-500 ${
+          className={`cursor-pointer transition ${
             select === category ? "text-sky-500" : ""
-          }`}
+          }
+          hover:text-sky-500`}
           onClick={handleCategory}
         >
           {category}

@@ -8,15 +8,17 @@ interface IPost {
   posts: IPosts[];
   select: string;
   handleCategory: (e: MouseEvent<HTMLLabelElement>) => void;
+  handlePostsDetail: (id: number) => () => void;
 }
 
-function Post({ posts, select, handleCategory }: IPost) {
+function Post({ posts, select, handleCategory, handlePostsDetail }: IPost) {
   return (
-    <section className="grid grid-cols-3 gap-3 max-w-[1100px] mx-auto auto-rows-[280px]">
+    <section className="grid grid-cols-posts gap-3 max-w-[1100px] mx-auto auto-rows-[280px]">
       {posts.map((post: IPosts) => (
         <ul
           key={post.id}
           className="grid auto-rows-posts rounded-md overflow-hidden shadow-md shadow-color-gray cursor-pointer hover:brightness-110"
+          onClick={handlePostsDetail(post.id)}
         >
           <li>
             <Image
