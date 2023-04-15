@@ -2,9 +2,16 @@ import path from "path";
 import { promises as fs } from "fs";
 import { IPosts } from "./@types";
 
-export async function getPosts(): Promise<IPosts[]> {
+export async function getPosts(
+  search?: string
+): Promise<[IPosts[], IPosts[]] | IPosts[]> {
   const filePath = path.join(process.cwd(), "data", "posts.json");
   const data = await fs.readFile(filePath, "utf-8");
+
+  if (search === "main") {
+    let searchData = JSON.parse(data);
+    return [searchData.filter((item: any) => !!item.main), JSON.parse(data)];
+  }
 
   return JSON.parse(data);
 }

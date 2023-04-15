@@ -5,4 +5,5 @@ export interface IPosts {
   title: string;
   description: string;
   category: string[];
+  main: boolean;
 }

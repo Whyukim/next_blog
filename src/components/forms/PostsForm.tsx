@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 interface IPostsForm {
   posts: IPosts[];
-  categorys: string[];
+  categorys?: string[] | undefined;
 }
 
 function PostsForm({ posts, categorys }: IPostsForm) {
@@ -35,25 +35,43 @@ function PostsForm({ posts, categorys }: IPostsForm) {
   );
 
   const handlePostsDetail = useCallback(
-    (id: number) => () => {
+    (id: number) => (e: any) => {
+      e.preventDefault();
       router.push(`/posts/${id}`);
     },
     []
   );
 
   return (
-    <div className="grid grid-cols-[1fr_100px]">
-      <Post
-        posts={filterPosts}
-        select={category}
-        handleCategory={handleCategory}
-        handlePostsDetail={handlePostsDetail}
-      />
-      <Category
-        categorys={categorys}
-        select={category}
-        handleCategory={handleCategory}
-      />
+    <div
+      className={`grid ${
+        categorys ? "grid-cols-[1fr_100px]" : "grid-cols-[1fr]"
+      }`}
+    >
+      <section
+        className={`grid gap-3 mx-auto auto-rows-[280px] ${
+          categorys
+            ? "max-w-[1100px] grid-cols-posts"
+            : "max-w-[1220px] w-full grid-cols-3"
+        }`}
+      >
+        {posts.map((post: IPosts) => (
+          <Post
+            key={post.id}
+            post={post}
+            select={category}
+            handleCategory={handleCategory}
+            handlePostsDetail={handlePostsDetail}
+          />
+        ))}
+      </section>
+      {categorys && (
+        <Category
+          categorys={categorys}
+          select={category}
+          handleCategory={handleCategory}
+        />
+      )}
     </div>
   );
 }
