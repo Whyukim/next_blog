@@ -37,7 +37,7 @@ function PostsSlideForm({ posts }: IPostsSlideForm) {
       autoPlaySpeed={3000}
       centerMode={false}
       sliderClass="gap-10"
-      className="p-3"
+      className="p-3 m-h-[280px]"
       containerClass="container-with-dots"
       draggable
       focusOnSelect={false}

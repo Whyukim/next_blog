@@ -16,7 +16,7 @@ function Post({ post, select, handleCategory, handlePostsDetail }: IPost) {
     <>
       <ul
         key={post.id}
-        className="grid auto-rows-posts rounded-md overflow-hidden shadow-md shadow-color-gray cursor-pointer hover:brightness-110"
+        className="grid auto-rows-posts max-h-[280px] rounded-md overflow-hidden shadow-md shadow-color-gray cursor-pointer hover:brightness-110"
         onClick={handlePostsDetail(post.id)}
       >
         <li>
