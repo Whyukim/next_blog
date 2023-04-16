@@ -19,7 +19,7 @@ function Profile({}: IProfile) {
         />
       </div>
 
-      <h1 className="text-center">HI, I'm Hyuk</h1>
+      <h1 className="text-center">HI, I&apos;m Hyuk</h1>
       <strong className="text-center">Front-End endgineer</strong>
       <p className="text-center">안녕하세요. 블로그입니다.</p>
       <Link

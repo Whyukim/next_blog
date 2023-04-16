@@ -46,7 +46,6 @@ function PostDetailForm({ post, postItem }: IPostDetailForm) {
           <span>{postItem?.createAt}</span>
         </div>
         <ReactMarkdown
-          children={post}
           remarkPlugins={[remarkGfm]}
           components={{
             code({ node, inline, className, children, ...props }) {
@@ -54,11 +53,12 @@ function PostDetailForm({ post, postItem }: IPostDetailForm) {
               return !inline && match ? (
                 <SyntaxHighlighter
                   {...props}
-                  children={String(children).replace(/\n$/, "")}
                   style={oneDark}
                   language={match[1]}
                   PreTag="div"
-                />
+                >
+                  {String(children).replace(/\n$/, "")}
+                </SyntaxHighlighter>
               ) : (
                 <code {...props} className={className}>
                   {children}
@@ -69,7 +69,9 @@ function PostDetailForm({ post, postItem }: IPostDetailForm) {
               return <pre className="bg-slate-600">{children}</pre>;
             },
           }}
-        />
+        >
+          {post}
+        </ReactMarkdown>
       </section>
       <nav className="grid grid-cols-[50%_50%] auto-rows-[200px] bg-gray-800 ">
         {postItem.prev?.title ? (

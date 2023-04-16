@@ -17,7 +17,7 @@ export default function RootLayout({
         <header className="flex items-center max-w-[1220px] h-10 mx-auto px-5">
           <nav className="flex justify-between w-full">
             <Link href={"/"} className="font-bold">
-              Hyuk's Blog
+              Hyuk&apos;s Blog
             </Link>
             <div className="flex gap-5">
               <Link href={"/"}>home</Link>
