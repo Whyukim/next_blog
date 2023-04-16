@@ -6,4 +6,6 @@ export interface IPosts {
   description: string;
   category: string[];
   main: boolean;
+  prev?: IPosts;
+  next?: IPosts;
 }

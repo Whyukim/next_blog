@@ -1,5 +1,6 @@
 "use client";
 
+import { IPosts } from "@/services/posts/@types";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -7,16 +8,22 @@ import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkGfm from "remark-gfm";
+import {
+  AiTwotoneCalendar,
+  AiOutlineArrowRight,
+  AiOutlineArrowLeft,
+} from "react-icons/ai";
 
 interface IPostDetailForm {
   post: string;
+  postItem: IPosts;
 }
 
-function PostDetailForm({ post }: IPostDetailForm) {
+function PostDetailForm({ post, postItem }: IPostDetailForm) {
   const router = useRouter();
 
   return (
-    <div className="prose dark:prose-invert w-full max-w-[1220px] rounded-3xl overflow-hidden">
+    <div className="prose dark:prose-invert relative w-full max-w-[1220px] rounded-3xl overflow-hidden">
       <div>
         <Image
           className="w-full max-h-48 m-0"
@@ -26,7 +33,18 @@ function PostDetailForm({ post }: IPostDetailForm) {
           height={200}
         />
       </div>
-      <section className="p-5 bg-gray-800">
+      <section className="p-8 bg-gray-800">
+        <div>
+          <h1 className="m-0">{postItem.title}</h1>
+          <h2 className="m-0 text-lg">{postItem.description}</h2>
+          <div className="w-40 h-1 bg-blue-500 my-5"></div>
+        </div>
+        <div className="absolute flex items-center gap-2 right-5 top-[210px] text-blue-500">
+          <i className="mt-[-3px]">
+            <AiTwotoneCalendar />{" "}
+          </i>
+          <span>{postItem?.createAt}</span>
+        </div>
         <ReactMarkdown
           children={post}
           remarkPlugins={[remarkGfm]}
@@ -54,32 +72,63 @@ function PostDetailForm({ post }: IPostDetailForm) {
         />
       </section>
       <nav className="grid grid-cols-[50%_50%] auto-rows-[200px] bg-gray-800 ">
-        <Link href={"/"} className="flex h-full items-center justify-center">
-          <Image
-            className="w-full h-full m-0"
-            src="https://dimg.donga.com/ugc/CDB/SHINDONGA/Article/5f/9a/4c/f6/5f9a4cf615cfd2738de6.jpg"
-            alt="사자"
-            width={200}
-            height={200}
-          />
-        </Link>
-        <Link
-          href={"/"}
-          className="relative flex h-full items-center justify-center"
-        >
-          <div className="z-10">
-            <h3>안녕</h3>
-            <span>다음글은 이거야</span>
+        {postItem.prev?.title ? (
+          <Link
+            href={`posts/${postItem.prev.id.toString()}`}
+            className="relative flex h-full items-center justify-center no-underline"
+          >
+            <div className="grid grid-cols-[32px_1fr] gap-3 items-center z-10">
+              <i>
+                <AiOutlineArrowLeft size="2em" color="yellow" />
+              </i>
+
+              <div className="flex items-center justify-center flex-col">
+                <h2 className="m-0">{postItem.prev?.title}</h2>
+                <span>{postItem.prev?.description}</span>
+              </div>
+            </div>
+            <Image
+              className="absolute w-full h-full m-0"
+              src="https://dimg.donga.com/ugc/CDB/SHINDONGA/Article/5f/9a/4c/f6/5f9a4cf615cfd2738de6.jpg"
+              alt="사자"
+              width={200}
+              height={200}
+            />
+          </Link>
+        ) : (
+          <div className="w-full h-full flex items-center justify-center">
+            글이없음
           </div>
-          <Image
-            className="absolute w-full h-full m-0"
-            src="https://dimg.donga.com/ugc/CDB/SHINDONGA/Article/5f/9a/4c/f6/5f9a4cf615cfd2738de6.jpg"
-            alt="사자"
-            width={200}
-            height={200}
-          />
-          <i className="absolute z-10 right-5 top-1/2">아이콘</i>
-        </Link>
+        )}
+
+        {postItem.next?.title ? (
+          <Link
+            href={`posts/${postItem.next.id.toString()}`}
+            className="relative flex h-full items-center justify-center no-underline"
+          >
+            <div className="grid grid-cols-[1fr_32px] gap-3 items-center z-10">
+              <div className="flex items-center justify-center flex-col">
+                <h2 className="m-0">{postItem.next?.title}</h2>
+                <span>{postItem.next?.description}</span>
+              </div>
+
+              <i>
+                <AiOutlineArrowRight size="2em" color="yellow" />
+              </i>
+            </div>
+            <Image
+              className="absolute w-full h-full m-0"
+              src="https://dimg.donga.com/ugc/CDB/SHINDONGA/Article/5f/9a/4c/f6/5f9a4cf615cfd2738de6.jpg"
+              alt="사자"
+              width={200}
+              height={200}
+            />
+          </Link>
+        ) : (
+          <div className="w-full h-full flex items-center justify-center">
+            글이없음
+          </div>
+        )}
       </nav>
     </div>
   );

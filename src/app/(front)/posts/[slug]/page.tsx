@@ -8,9 +8,9 @@ interface IpostsDetail {
 
 async function postsDetail({ params, searchParams }: IpostsDetail) {
   const { slug } = params;
-  const post = await getPost(slug);
+  const [post, postItem] = await getPost(slug);
 
-  return <PostDetailForm post={post} />;
+  return <PostDetailForm post={post} postItem={postItem} />;
 }
 
 export default postsDetail;
