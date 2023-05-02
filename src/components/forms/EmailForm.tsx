@@ -24,7 +24,9 @@ function EmailForm({}: IEmailForm) {
     validationSchema,
     onSubmit: async ({ email, subject, message }) => {
       try {
-        // axios.post({email, subject, message}) 여기서 실패..!
+        axios.post("/api/mail", { email, subject, message }).then((res) => {
+          console.log(res);
+        });
       } catch (error) {}
     },
   });
